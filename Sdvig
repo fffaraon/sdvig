@@ -1,0 +1,42 @@
+#include "stdafx.h"
+#include "iostream"
+#include "stdlib.h"
+void ContentArray(int a[], int size)
+{
+	
+	for (int i = 0; i < size; i++)
+	{
+		a[i] = rand()%(100-10+1)+10;
+	}
+	
+}
+void PrintContent(int a[], int size)
+{
+ for (int i = 0; i < size; i++)
+	{
+		printf("=%d\n", a[i]);
+	}
+}
+int _tmain(int argc, _TCHAR* argv[])
+{
+	int a[10];
+	int size = sizeof(a) / sizeof(a[0]);
+	ContentArray(a,size);
+	PrintContent(a,size);
+   int b;
+   printf("entering the number of shift steps: ");
+   scanf("%d",&b);
+   
+   for (int i=0; i<b; i++)
+   {   
+    for (int j=9; j>0; j--)
+	{
+	 a[j] = a[j - 1];
+
+	}
+	a[0]=0;
+   }
+   PrintContent(a,size);
+	return 0;
+}
+
